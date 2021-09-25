@@ -9,5 +9,6 @@ urlpatterns = [
     path('confirm/<token>',confirm,name='confirm'),
     path('courses/',courses,name='courses'),
     path('main/',main,name='main'),
-    path('logout/',logOut,name='logout')
+    path('logout/',logOut,name='logout'),
+    path('',redi,name='redi')
 ]

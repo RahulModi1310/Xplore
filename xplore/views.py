@@ -54,7 +54,7 @@ def register(request):
                     subject = "Account confirmation"
                 
                     token = generateToken(email)
-                    url = 'http://localhost:8000/confirm/{}'.format(token)
+                    url = 'https://xpl0re.herokuapp.com/confirm/{}'.format(token)
                     message = render_to_string('regEmail.html',{'link':url})
                     plain_message = strip_tags(message)
                     from_email = 'pwnworld10@gmail.com'
@@ -65,7 +65,7 @@ def register(request):
                 elif emailTaken==True and accountInactive:
                     subject = "Account confirmation"
                     token = generateToken(email)
-                    url = 'http://localhost:8000/confirm/{}'.format(token)
+                    url = 'https://xpl0re.herokuapp.com/confirm/{}'.format(token)
                     message = render_to_string('regEmail.html',{'link':url})
                     plain_message = strip_tags(message)
                     from_email = 'pwnworld10@gmail.com'
@@ -172,6 +172,8 @@ def insert(courseName,coursePlatform,imageUrl,courseUrl,rating,details,status):
     mod = Course.objects.create(courseName=courseName,coursePlatform=coursePlatform,imageUrl=imageUrl,courseUrl=courseUrl,rating=rating,details=details,status=status)
     mod.save()
 
+def redi(request):
+    return redirect("/main/")
 
 def main(request):
     # insert("Competitive Programming","Geeks for Geeks","https://pbs.twimg.com/profile_images/1304985167476523008/QNHrwL2q.jpg","https://www.geeksforgeeks.org/","5","Whether you want to learn algorithms, data structures or it is the programming language on its own which interests you, GeeksforGeeks has covered everything!","free")

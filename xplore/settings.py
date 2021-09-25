@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['xpl0re.herokuapp.com','127.0.0.1']
 SECRET_KEY = config('SECRET_KEY')
 email = config('EMAIL')
 email_password = config('EMAIL_PASSWORD')

@@ -13,6 +13,143 @@
        
         <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="C:\Users\meris\Desktop\hackathon\style.css">
+
+        <style>
+            body {font-family: Arial, Helvetica, sans-serif;}
+            
+            /* Full-width input fields */
+            input[type=text], input[type=password] {
+              width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0;
+              display: inline-block;
+              border: 1px solid #ccc;
+              box-sizing: border-box;
+            }
+            
+            /* Set a style for all buttons */
+            .button1 {
+              background-color:#2D6273 ;
+              color: white;
+              padding: 14px 20px;
+              margin: 8px 0;
+              border: none;
+              cursor: pointer;
+              width: 100%;
+            }
+            .button2 {
+              background-color:#2D6273 ;
+              color: white;
+              border: none;
+              cursor: pointer;
+              
+            }
+            
+            button:hover {
+              opacity: 0.8;
+            }
+            
+            /* Extra styles for the cancel button */
+            .cancelbtn {
+              width: auto;
+              padding: 10px 18px;
+              background-color: #888;
+            }
+            
+            /* Center the image and position the close button */
+            .imgcontainer {
+                margin-top: 0;
+                padding-top: 0;
+              text-align: center;
+              margin: 24px 0 12px 0;
+              position: relative;
+            }
+            
+            img.avatar {
+              width: 20%;
+              border-radius: 50%;
+            }
+            
+            .container {
+              padding: 16px;
+            }
+            
+            span.psw {
+              float: right;
+              padding-top: 16px;
+            }
+            
+            /* The Modal (background) */
+            .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+              padding-top: 60px;
+            }
+            .modal2 {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+              padding-top: 60px;
+            }
+            
+            /* Modal Content/Box */
+            .modal-content {
+              background-color: #fefefe;
+              margin: 5% 5% 15% auto; /* 5% from the top, 15% from the bottom and centered */
+              border: 1px solid #888;
+              width: 50%; /* Could be more or less, depending on screen size */
+            }
+            .modal2-content {
+              background-color: #fefefe;
+              margin: 5% 5% 15% auto; /* 5% from the top, 15% from the bottom and centered */
+              border: 1px solid #888;
+              width: 50%; /* Could be more or less, depending on screen size */
+            }
+            
+            
+            
+           
+            .animate {
+              -webkit-animation: animatezoom 0.6s;
+              animation: animatezoom 0.6s
+            }
+            
+            @-webkit-keyframes animatezoom {
+              from {-webkit-transform: scale(0)} 
+              to {-webkit-transform: scale(1)}
+            }
+              
+            @keyframes animatezoom {
+              from {transform: scale(0)} 
+              to {transform: scale(1)}
+            }
+            
+            
+            @media screen and (max-width: 300px) {
+              span.psw {
+                 display: block;
+                 float: none;
+              }
+              .cancelbtn {
+                 width: 100%;
+              }
+            }
+            </style>
     </head>
     <body>
         <div class="page1">
@@ -24,8 +161,8 @@
                 <a href="">Explore</a>
                 <a href="">About</a>
                 <a href="">Team</a>
-                <a href="">Login</a>
-                <a href="">Signup</a>
+                <button class="button2" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+                <button class="button2"  onclick="document.getElementById('id02').style.display='block'" style="width:auto;">Signup</button>
             </div>
             </div>
             <!-- <ul>
@@ -48,9 +185,7 @@
                 <img src=".\element1.png" alt="logo2" class="element" align="right">
                 
                 </div>
-                <script type="text/javascript" src="index.js">
                 
-                </script>
             
         </div>
         <div class="page2">
@@ -97,15 +232,13 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br> Aenean vehicula nisi eu justo placerat, vitae tempus ante tempus.<br> Duis id congue ex. In et dui enim. Nullam mattis,<br> diam id convallis molestie, tellus elit convallis leo,<br> in dignissim diam dolor non velit.
                 </p>
-                <!-- <button class="top-bar-content-button">Explore</button> -->
+                
              </div>
                 
                
                 
                 </div>
-                <script type="text/javascript" src="index.js">
                 
-                </script>
         </div>
         <div class="page4">
             <div class="top-bar-content4">
@@ -130,11 +263,9 @@
 
                     
                 </table>
-                <!-- <button class="top-bar-content-button">Explore</button> -->
+             
              </div>
-             <script type="text/javascript" src="index.js">
-                
-             </script>
+             
         </div>
         <div class="page5">
             <div class="top-bar-content5">
@@ -170,5 +301,98 @@
                 
                 
         </div>
+        
+<!-- login page -->
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="/action_page.php" method="post">
+    <div class="imgcontainer" style="margin-top: 0;">
+     
+      <div style="background-color: #2D6273; height: 30%;top: 0px; margin-top: 0; padding-top: 20px; padding-bottom: 20px;">
+        <img src="./logo.png" alt="Avatar" class="avatar" width="40%">
+      </div>
+      
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button class="button1" type="submit">Login</button>
+      <label>
+       
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw"> <a href="#" style="color: grey;">Forgot password?</a></span>
+    </div>
+  </form>
+</div>
+
+<!-- Sign up page -->
+<div id="id02" class="modal2">
+  
+    <form class="modal2-content animate" action="/action_page.php" method="post">
+      <div class="imgcontainer" style="margin-top: 0;">
+       
+        <div style="background-color: #2D6273; height: 30%;top: 0px; margin-top: 0; padding-top: 20px; padding-bottom: 20px;">
+          <img src="./logo.png" alt="Avatar" class="avatar" width="40%">
+        </div>
+        
+      </div>
+      <h1 style="margin-bottom:0;margin-left: 20px;">Sign Up and Start Learning!</h1>
+      <br>
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="uname"><b>Email ID</b></label>
+        <input type="text" placeholder="Enter Email" name="email" required>
+        <br>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <label for="psw"><b>Confirm Password</b></label>
+        <input type="password" placeholder="Confirm Password" name="cpsw" required>
+          
+        <button class="button1" type="submit">Signup</button>
+        <label>
+          
+      </div>
+  
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+        
+      </div>
+    </form>
+  </div>
+
+<script>
+
+var modal = document.getElementById('id01');
+
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+        
+    }
+}
+var modal2 = document.getElementById('id02');
+
+
+window.onclick = function(event) {
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+        
+    }
+}
+</script>
+
     </body>
 </html>

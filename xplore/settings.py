@@ -5,7 +5,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 SECRET_KEY = config('SECRET_KEY')
@@ -34,7 +34,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'xplore.urls'
-
+CSRF_COOKIE_NAME = "csrftoken"
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

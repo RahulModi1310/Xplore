@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Explore</title>
+    <link rel="stylesheet" href="/static/css/courses.css" />
+    <link rel="preconnect" href="https:/fonts.googleapis.com" />
+    <link rel="preconnect" href="https:/fonts.gstatic.com" crossorigin />
+    <link
+      href="https:/fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="navbar">
+      <img class="navbar__logo" src="/static/assets/logo.svg" alt="Xplore logo" />
+      <ul class="navbar__list">
+        <li>Explore</li>
+        <li>About</li>
+        <li > <a href="/logout/">Logout</a> </li>
+      </ul>
+    </nav>
+    <main class="main__grid">
+      <div class="field_nav">
+        <ul class="field_nav__list">
+          {%for course in courses%}
+          <li><a href="{{course.courseUrl}}">{{course.coursePlatform}}</a> </li>
+          {%endfor%}
+        </ul>
+      </div>
+      <div class="course__container">
+        <div class="filter__button">
+          <select id="filter">
+            <option value="" selected>Filter</option>
+            <option id="free" value="">Free</option>
+            <option id="paid" value="">Paid</option>
+            <option id="rating" value="">Rating</option>
+          </select>
+        </div>
+        <ul class="course__list">
+          {%for course in courses%}
+          <li>
+            <div class="course__img">
+              <img src="{{course.imageUrl}}" alt="" />
+            </div>
+            <div class="course__info">
+              <a href="{{course.courseUrl}}">
+                <h3 class="course__title">{{course.courseName}}</h3>
+              </a>
+              <p class="course__price">{{course.status}}</p>
+              <p class="course__website">{{course.coursePlatform}}</p>
+              <p>
+                <img src="/static/assets/star_icon.svg" alt="" />
+                <img src="/static/assets/star_icon.svg" alt="" />
+                <img src="/static/assets/star_icon.svg" alt="" />
+                <img src="/static/assets/star_icon.svg" alt="" />
+                <img src="/static/assets/star_icon.svg" alt="" />
+              </p>
+              <p class="course__desp">
+                {{course.details}}
+              </p>
+            </div>
+          </li>
+          
+          {%endfor%}
+        </ul>
+      </div>
+    </main>
+    <form id="f1" action="/courses/" style="visibility: hidden;" method="POST">
+      {%csrf_token%}
+      <input id="hid" type="hidden" name="filter">
+    </form>
+    <script>
+      let filter = document.getElementById("filter")
+      let f1 = document.getElementById("f1");
+      let hid = document.getElementById("hid")
+      function getCookie(cname) {
+        let name = cname + "=";
+        let decodedCookie = decodeURIComponent(document.cookie);
+        let ca = decodedCookie.split(';');
+        for(let i = 0; i <ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+          }
+          if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+          }
+        }
+        return "";
+      }
+      let csrfToken = getCookie("csrftoken")
+      filter.addEventListener("change",()=>{
+        let finalFilter = filter.options[filter.selectedIndex].text
+        hid.value = finalFilter;
+        f1.submit();
+      })
+    </script>
+  </body>
+</html>

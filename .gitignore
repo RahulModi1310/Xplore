@@ -1,4 +1,4 @@
-.env
+xplore/.env
 xplore/__pycache__/*
 *.bak
 *.sqlite3

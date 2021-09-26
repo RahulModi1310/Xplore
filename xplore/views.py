@@ -54,7 +54,7 @@ def register(request):
                     subject = "Account confirmation"
                 
                     token = generateToken(email)
-                    url = 'https://xpl0re.herokuapp.com/confirm/{}'.format(token)
+                    url = 'http://localhost:8000/confirm/{}'.format(token)
                     message = render_to_string('regEmail.html',{'link':url})
                     plain_message = strip_tags(message)
                     from_email = 'pwnworld10@gmail.com'
@@ -65,7 +65,7 @@ def register(request):
                 elif emailTaken==True and accountInactive:
                     subject = "Account confirmation"
                     token = generateToken(email)
-                    url = 'https://xpl0re.herokuapp.com/confirm/{}'.format(token)
+                    url = 'http://localhost:8000/confirm/{}'.format(token)
                     message = render_to_string('regEmail.html',{'link':url})
                     plain_message = strip_tags(message)
                     from_email = 'pwnworld10@gmail.com'
